@@ -87,64 +87,81 @@ const RestaurantsList = props => {
 
   return (
     <div>
+      
       <div className="row pb-1">
-        <div className="input-group col-lg-4">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by name"
-            value={searchName}
-            onChange={onChangeSearchName}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={findByName}
-            >
-              Search
-            </button>
+      <div className="card">
+      <div className="card-body">
+        
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-4">
+                <div className="input-group col-lg-4">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search by name"
+                value={searchName}
+                onChange={onChangeSearchName}
+              />
+              <div className="input-group-append">
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={findByName}
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+            </div>
+          <div class="col-4">
+            <div className="input-group col-lg-4">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search by zip"
+                value={searchZip}
+                onChange={onChangeSearchZip}
+              />
+              <div className="input-group-append">
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={findByZip}
+                >
+                  Search
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="input-group col-lg-4">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by zip"
-            value={searchZip}
-            onChange={onChangeSearchZip}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={findByZip}
-            >
-              Search
-            </button>
-          </div>
-        </div>
-        <div className="input-group col-lg-4">
+          <div class="col">
+            <div className="input-group col-lg-4">
 
-          <select onChange={onChangeSearchCuisine}>
-             {cuisines.map(cuisine => {
-               return (
-                 <option value={cuisine}> {cuisine.substr(0, 20)} </option>
-               )
-             })}
-          </select>
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={findByCuisine}
-            >
-              Search
-            </button>
-          </div>
+              <select onChange={onChangeSearchCuisine}>
+                {cuisines.map(cuisine => {
+                  return (
+                    <option value={cuisine}> {cuisine.substr(0, 20)} </option>
+                  )
+                })}
+              </select>
+              <div className="input-group-append">
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={findByCuisine}
+                >
+                  Search
+                </button>
+              </div>
 
+            </div>
+          </div>
+          </div>
         </div>
-      </div>
+        
+        
+      </div></div></div>
       <div className="row">
         {restaurants.map((restaurant) => {
           const address = `${restaurant.address.building} ${restaurant.address.street}, ${restaurant.address.zipcode}`;
@@ -158,10 +175,10 @@ const RestaurantsList = props => {
                     <strong>Address: </strong>{address}
                   </p>
                   <div className="row">
-                  <Link to={"/restaurants/"+restaurant._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
+                  <Link to={"/restaurants/"+restaurant._id} className="btn btn-secondary col-lg-5 mx-1 mb-1">
                     View Reviews
                   </Link>
-                  <a target="_blank" href={"https://www.google.com/maps/place/" + address} className="btn btn-primary col-lg-5 mx-1 mb-1">View Map</a>
+                  <a target="_blank" href={"https://www.google.com/maps/place/" + address} className="btn btn-success col-lg-5 mx-1 mb-1">View Map</a>
                   </div>
                 </div>
               </div>
